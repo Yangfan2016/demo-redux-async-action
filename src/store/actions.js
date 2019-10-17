@@ -47,7 +47,7 @@ export function fetchTopicsFail(payload) {
     payload
   };
 }
-
+// redux-thunk
 export function getTopicsByThunk() {
   return dispatch => {
     dispatch(fetchTopicsStart());
@@ -61,7 +61,7 @@ export function getTopicsByThunk() {
       });
   };
 }
-
+// redux-promise
 export function getTopicsByPromise() {
   return fetch("https://cnodejs.org/api/v1/topics")
     .then(res => res.json())
@@ -72,7 +72,7 @@ export function getTopicsByPromise() {
       return fetchTopicsFail(err);
     });
 }
-
+// diy-redux-promise
 export function getTopicsByDiyPromise() {
   return {
     async: fetch("https://cnodejs.org/api/v1/topics")
@@ -86,7 +86,7 @@ export function getTopicsByDiyPromise() {
     types: [FETCH_TOPICS_START, FETCH_TOPICS_SUCCESS, FETCH_TOPICS_FAIL]
   };
 }
-
+// redux-saga
 export function getTopicsBySaga() {
   return dispatch => {
     dispatch(fetchTopicsStart());
